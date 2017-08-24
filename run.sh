@@ -10,7 +10,12 @@ set -eu
 
 ssh_private_key_path=$1
 git_repository_url=$2
-config_pathname=$3 # name of a split.json file inside the fetched $git_repository_url repository
+config_pathname=$3
+
+if ! type docker > /dev/null; then
+    echo "Docker is required to run this script."
+    exit 1
+fi
 
 # This directory is going to be mounted into the container and removed when the script has finished execution
 container_data_pathname=/tmp/splitter-files-$RANDOM-`date +%s`
@@ -46,7 +51,7 @@ ssh_config_body="
 "
 echo "$ssh_config_body" > $ssh_config_pathname
 
-docker run -it --rm \
+docker run -t --rm \
            -v $ssh_private_key_path:/root/.ssh/id_rsa \
            -v $ssh_config_pathname:/etc/ssh/ssh_config \
            -v $container_data_pathname:$container_data_pathname \
