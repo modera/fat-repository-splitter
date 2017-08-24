@@ -18,6 +18,6 @@ going to be pushed to `git@bitbucket.org:sergeil/dummy-origin-a.git`.
 
 If you have Docker installed then you can run this script as easy as this:
 
-    ./run.sh ~/.ssh/nowinnovations_bitbucket git@bitbucket.org:nowinnovations/nowosremoteassetapplication.git split.json
+    ./run.sh ~/.ssh/id_rsa git@bitbucket.org:foobarbaz/acme.git split.json
     
 For more information regarding meaning of the arguments please see the contents of `run.sh` script.
