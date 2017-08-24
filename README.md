@@ -1,4 +1,4 @@
-# repository-splitter
+# fat-repository-splitter
 
 A nodejs script that allows to split a repository into sub-repositories using configuration defined in `config.json`.
 
