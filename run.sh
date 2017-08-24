@@ -37,6 +37,10 @@ cd $cwd
 splitter_body="
 #!/usr/bin/env bash
 
+if [ ! -e node_modules ] ; then
+    npm i
+fi
+
 git clone $git_repository_url /tmp/target-repository > /dev/null
 
 node index.js /tmp/target-repository/$config_pathname
