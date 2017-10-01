@@ -29,7 +29,7 @@ echo " Now running tests"
 echo "===================="
 echo ""
 
-docker run -t -v $cwd:/tmp/mnt -w /tmp/mnt digitallyseamless/nodejs-bower-grunt node test/test.js
+docker run -t -v $cwd:/tmp/mnt -w /tmp/mnt digitallyseamless/nodejs-bower-grunt node test/happy-path.test.js
 
 
 
