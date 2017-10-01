@@ -47,7 +47,7 @@ function extractNotChangedTags(output) {
     if (pattern.test(output)) {
         output.split("\n").forEach(function(line) {
             if (pattern.test(line)) {
-                var matches = pattern.exec(line);
+                let matches = pattern.exec(line);
 
                 unchangedTags.push(matches[1]);
             }
@@ -141,9 +141,9 @@ utils.async(function* () {
 
             // MPFE-925
             // If a tag could not have been rewritten then we will delete it otherwise this happens:
-            // Imagine you create a project, add a file src/Foo/FOO-README.md and commit it, after
-            // that you create another file in src/Bar/BAR-README.md directory, commit it and then create
-            // an another tag v0.2.0, then you configure splitter to split project using src/Foo and
+            // Imagine you create a project, add a file src/Foo/FOO-README.md, commit it and create a tag v0.1.0,
+            // after that you create another file in src/Bar/BAR-README.md directory, commit it and then create
+            // another tag v0.2.0. After that you configure splitter to split project using src/Foo and
             // src/Bar paths and without manually deleting tags what would happen is that
             // a repository represented by src/Bar would have two version - v0.1.0 and v0.2.0 but
             // at the time when v0.1.0 tag was created there essentially was not src/Bar directory yet

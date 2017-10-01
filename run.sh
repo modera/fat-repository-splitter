@@ -2,9 +2,10 @@
 
 # This is an example how you can run the splitter:
 # ./run.sh ~/.ssh/id_rsa git@bitbucket.org:foobarbaz/acme.git split.json
-# 1st argument - a location on a host machine of your private key that will be used to clone a repository specified
-# as a second argument ; 2nd argument - repository to clone and eventually split ; 3rd argument - filename of split.json
-# inside a repository cloned specified in in second argument
+# - 1st argument - a location on a host machine of your private key that will be used to clone a repository specified
+# as a second argument
+# - 2nd argument - repository to clone and eventually split
+# - 3rd argument - filename of split.json inside a repository cloned specified in a second argument
 
 set -eu
 
@@ -43,7 +44,7 @@ fi
 
 git clone $git_repository_url /tmp/target-repository > /dev/null
 
-node index.js /tmp/target-repository/$config_pathname
+node src/index.js /tmp/target-repository/$config_pathname
 "
 echo "$splitter_body" > $splitter_pathname
 chmod +x $splitter_pathname

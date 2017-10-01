@@ -1,7 +1,0 @@
-{
-    "origin": "git@github.com:modera-migration/foundation.git",
-    "splits": {
-        "Modera/BackendToolsBundle": "git@github.com:modera-migration/ModeraBackendToolsBundle.git",
-        "Modera/BackendTranslationsToolBundle": "git@github.com:modera-migration/ModeraBackendTranslationsToolBundle.git"
-    }
-}
