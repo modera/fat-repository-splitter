@@ -1,4 +1,4 @@
-# fat-repository-splitter
+# fat-repository-splitter [![Build Status](https://travis-ci.org/modera/fat-repository-splitter.svg?branch=master)](https://travis-ci.org/modera/fat-repository-splitter)
 
 A nodejs script that allows to split a repository into sub-repositories using configuration defined in `config.json`.
 

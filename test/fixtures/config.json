@@ -1,0 +1,11 @@
+{
+  "_comments": [
+    "/data/ - it is a directory within a container where the / of this repository is mounted"
+  ],
+
+  "origin": "/data/test/fixtures/files/fat.git",
+  "splits": {
+    "src/Foo": "/data/test/fixtures/files/foo.git",
+    "src/Bar": "/data/test/fixtures/files/bar.git"
+  }
+}
