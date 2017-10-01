@@ -9,8 +9,11 @@
     "rmdir": "^1.2.0",
     "sprintf-js": "1.0.x"
   },
+  "devDependencies": {
+    "tape": "^4.8.0"
+  },
   "keywords": [
-    "git"
+    "git", "git-splitter", "fat", "fatrepo"
   ],
   "author": "Sergei Lissovski",
   "license": "MIT"
