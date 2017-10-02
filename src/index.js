@@ -159,9 +159,13 @@ utils.async(function* () {
             try {
                 // http://stackoverflow.com/questions/5195859/push-a-tag-to-a-remote-repository-using-git
                 // --follow-tags won't push "lightweight" tags (not annotated) though
-                yield exec.$call(sprintf('git push origin --all --follow-tags'), { cwd: tempWorkingCopyPathname });
+
+                // The "-f" flag will overwrite any direct commits that could have been done
+                // accidentally to already split repository (and by-definition "read-only")
+                // The "-f" flag probably will help with INF-46
+                yield exec.$call(sprintf('git push -f origin --all --follow-tags'), { cwd: tempWorkingCopyPathname });
                 // this will push non-annotated tags as well:
-                yield exec.$call(sprintf('git push origin --tags'), { cwd: tempWorkingCopyPathname });
+                yield exec.$call(sprintf('git push -f origin --tags'), { cwd: tempWorkingCopyPathname });
             } catch (e) {
                 console.error(formatCommandOutput(e.message).red);
 
