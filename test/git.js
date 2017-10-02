@@ -2,10 +2,12 @@ const { execSync } = require('child_process');
 
 const dir = __dirname + '/fixtures/files';
 
-const cloneRepository = (name) => {
-    execSync(`rm -rf ${name} && git clone ${name}.git`, { cwd: dir });
+const cloneRepository = (source, target) => {
+    target = target || source;
 
-    return dir+'/'+name;
+    execSync(`rm -rf ${source} && git clone ${source}.git ${target}`, { cwd: dir });
+
+    return dir+'/'+source;
 };
 
 const getTags = (repositoryPath) => {
@@ -26,6 +28,14 @@ const getCommits = (repositoryPath) => {
     return commits;
 };
 
+const getBranches = (repositoryPath) => {
+    let plainOutput = execSync('git branch', { cwd: repositoryPath }).toString();
+    plainOutput = plainOutput.split("\n");
+    plainOutput.pop();
+
+    return plainOutput.map((name) => name.replace('* ', ''));
+};
+
 module.exports = {
-    cloneRepository, getTags, getCommits
+    cloneRepository, getTags, getCommits, getBranches
 };

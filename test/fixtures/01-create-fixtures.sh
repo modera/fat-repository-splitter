@@ -74,6 +74,11 @@ cd $fat_dir_full
 git add .
 git commit -m "4th commit ; src/Bar/README.md changed"
 
+git checkout -b yolo
+touch .gitignore
+git add .
+git commit -m "5th commit ; src/Bar/.gitignore added"
+
 cd $fat_dir_full
 git remote add origin ../fat.git
 git push -u origin --all --follow-tags

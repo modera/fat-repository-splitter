@@ -49,5 +49,14 @@ run_script 02-issue-additional-commits
 ./run.sh $fixtures_dir_full/files/keys/id_rsa $fixtures_dir_full_local/files/fat.git config.json
 docker run -t -v $cwd:/tmp/mnt -w /tmp/mnt digitallyseamless/nodejs-bower-grunt node test/git-push-force.test.js
 
+echo ""
+echo "=================================================================================="
+echo " Deleting a branch from fat repository should delete it from the children as well"
+echo "=================================================================================="
+echo ""
+
+run_script 03-delete-yolo-branch
+./run.sh $fixtures_dir_full/files/keys/id_rsa $fixtures_dir_full_local/files/fat.git config.json
+#docker run -t -v $cwd:/tmp/mnt -w /tmp/mnt digitallyseamless/nodejs-bower-grunt node test/child-repo-branch-delete.test.js
 
 

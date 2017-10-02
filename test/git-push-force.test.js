@@ -1,7 +1,7 @@
 const test = require('tape');
 const git = require('./git.js');
 
-test('check "foo" repository', (t) => {
+test('make sure "foo" contains only "master" branch', (t) => {
     const path = git.cloneRepository('foo');
 
     const commits = git.getCommits(path);
